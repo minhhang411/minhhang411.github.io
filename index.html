@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Hang | Software Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #38bdf8;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .accent-text {
+            color: #38bdf8;
+        }
+
+        .project-grid-icon {
+            font-size: 2.5rem;
+            color: #38bdf8;
+            margin-bottom: 1rem;
+        }
+
+        /* Style cho icon công nghệ */
+        .tech-icon {
+            font-size: 3rem;
+            color: #94a3b8;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .tech-card:hover .tech-icon {
+            color: #38bdf8;
+            transform: scale(1.1);
+        }
+
+        .tech-card {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 1rem;
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            background: rgba(30, 41, 59, 0.6);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-12">
+
+        <aside class="md:w-1/3 lg:w-1/4">
+            <div class="sticky top-12 space-y-8 text-center md:text-left">
+                <div>
+                    <div
+                        class="w-32 h-32 mx-auto md:mx-0 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white text-4xl font-bold shadow-xl mb-6">
+                        MH
+                    </div>
+                    <h1 class="text-2xl font-bold text-white uppercase tracking-tight">Mao Thi Minh Hang</h1>
+                    <p class="accent-text font-medium mt-1 italic">Full-stack Developer</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl space-y-3 text-xs text-slate-400">
+                    <div class="flex items-center gap-3"><i class="fas fa-phone accent-text w-4 text-center"></i> (+84)
+                        983746151</div>
+                    <div class="flex items-center gap-3"><i class="fas fa-envelope accent-text w-4 text-center"></i>
+                        maominhhang114@gmail.com</div>
+                    <div class="flex items-center gap-3"><i class="fab fa-github accent-text w-4 text-center"></i>
+                        github.com/minhhang411</div>
+                    <div class="flex items-center gap-3"><i class="fas fa-location-dot accent-text w-4 text-center"></i>
+                        Ho Chi Minh City, Vietnam</div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl text-xs text-slate-400">
+                    <h4 class="font-bold text-white mb-2 uppercase tracking-widest">Education</h4>
+                    <p class="font-semibold text-slate-200">Saigon University (SGU)</p>
+                    <p class="italic">Software Engineering</p>
+                    <p class="accent-text font-bold mt-1">Class of 2026</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1">
+            <nav class="flex gap-4 border-b border-slate-800 mb-8 sticky top-0 bg-[#0f172a] z-10 py-2">
+                <button onclick="openTab(event, 'info')"
+                    class="tab-btn active px-4 py-2 text-sm font-bold uppercase tracking-wider transition-all">Projects</button>
+                <button onclick="openTab(event, 'skills')"
+                    class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-wider transition-all">Technical
+                    Skills</button>
+                <button onclick="openTab(event, 'achievements')"
+                    class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-wider transition-all">Achievements</button>
+            </nav>
+
+            <div id="info" class="tab-content active space-y-8">
+                <section class="glass-card p-8 rounded-3xl mb-8">
+                    <h2 class="text-2xl font-bold text-white mb-4 italic">About me</h2>
+                    <p class="text-slate-400 leading-relaxed">
+                        I am a senior Software Engineering student at Saigon University. I specialize in Full-stack
+                        development, focusing on building scalable systems with clean architecture and optimized
+                        database design.
+                    </p>
+                </section>
+
+                <h3 class="text-xl font-bold text-white px-2 uppercase tracking-widest border-l-4 border-sky-500 ml-2">
+                    Featured Projects</h3>
+                <div class="grid gap-6">
+                    <div class="glass-card p-6 rounded-2xl hover:border-sky-500/50 transition-all group">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4 flex justify-center items-center bg-slate-800/50 rounded-xl p-4">
+                                <i class="fas fa-chalkboard-user project-grid-icon"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">
+                                        English Center Management</h4>
+                                    <span
+                                        class="text-[9px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded border border-sky-500/20 font-bold uppercase">Admin
+                                        Platform</span>
+                                </div>
+                                <p class="text-sm text-slate-400 mb-4 italic">A centralized platform for course
+                                    scheduling and student progress tracking.</p>
+                                <ul class="text-xs text-slate-500 mb-4 list-disc list-inside space-y-1">
+                                    <li>Automated course assignment and administrative documentation.</li>
+                                    <li>Built with Laravel for scalable enterprise-level services.</li>
+                                    <li>Frontend developed using React for seamless student/teacher interaction.</li>
+                                </ul>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">Laravel</span>
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">ReactJS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl hover:border-sky-500/50 transition-all group">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4 flex justify-center items-center bg-slate-800/50 rounded-xl p-4">
+                                <i class="fas fa-bus project-grid-icon"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">
+                                        Bus Ticket Booking System</h4>
+                                    <span
+                                        class="text-[9px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded border border-sky-500/20 font-bold uppercase">Web
+                                        App</span>
+                                </div>
+                                <p class="text-sm text-slate-400 mb-4 italic">A comprehensive platform to digitize bus
+                                    ticket booking and schedule management.</p>
+                                <ul class="text-xs text-slate-500 mb-4 list-disc list-inside space-y-1">
+                                    <li>Implemented real-time ticket availability tracking.</li>
+                                    <li>Built with React for a dynamic UI and Laravel for a robust RESTful API.</li>
+                                    <li>Integrated MySQL for optimized route and user data storage.</li>
+                                </ul>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">React</span>
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">SpringBoot</span>
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl hover:border-sky-500/50 transition-all group">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4 flex justify-center items-center bg-slate-800/50 rounded-xl p-4">
+                                <i class="fas fa-book-open project-grid-icon"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h4 class="text-lg font-bold text-white group-hover:text-sky-400 transition-colors">
+                                        Bookstore Management System</h4>
+                                    <span
+                                        class="text-[9px] bg-sky-500/10 text-sky-400 px-2 py-1 rounded border border-sky-500/20 font-bold uppercase">Software
+                                        Solution</span>
+                                </div>
+                                <p class="text-sm text-slate-400 mb-4 italic">Management software for inventory, sales,
+                                    and retail operations.</p>
+                                <ul class="text-xs text-slate-500 mb-4 list-disc list-inside space-y-1">
+                                    <li>Developed complex inventory tracking and reporting modules.</li>
+                                    <li>Leveraged .NET Core and Entity Framework for high-performance backend
+                                        processing.</li>
+                                    <li>Ensured data integrity using SQL Server/MySQL relationships.</li>
+                                </ul>
+                                <div class="flex gap-2">
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">.NET
+                                        Core</span>
+                                    <span
+                                        class="text-[10px] bg-slate-800 px-2 py-1 rounded text-slate-300 border border-slate-700">MySQL/SQL
+                                        Server</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content space-y-8">
+                <section class="glass-card p-8 rounded-3xl">
+                    <h3
+                        class="text-sky-400 font-bold mb-8 uppercase text-sm tracking-widest border-b border-slate-800 pb-2">
+                        Frontend Stack</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                        <div class="tech-card">
+                            <i class="devicon-react-original tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">ReactJS</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-tailwindcss-original tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Tailwind CSS</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-javascript-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">JavaScript</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-html5-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">HTML5</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-css3-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">CSS3</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card p-8 rounded-3xl">
+                    <h3
+                        class="text-sky-400 font-bold mb-8 uppercase text-sm tracking-widest border-b border-slate-800 pb-2">
+                        Backend Stack</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                        <div class="tech-card">
+                            <i class="devicon-laravel-original tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Laravel</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-spring-original tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Spring Boot</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-dotnetcore-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">.NET Core</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-java-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Java</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-php-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">PHP</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-csharp-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">C#</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card p-8 rounded-3xl">
+                    <h3
+                        class="text-sky-400 font-bold mb-8 uppercase text-sm tracking-widest border-b border-slate-800 pb-2">
+                        Databases & Tools</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                        <div class="tech-card">
+                            <i class="devicon-mysql-original tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">MySQL</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-postgresql-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">PostgreSQL</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-git-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Git</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-github-original tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">GitHub</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-docker-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Docker</p>
+                        </div>
+                        <div class="tech-card">
+                            <i class="devicon-postman-plain tech-icon"></i>
+                            <p class="text-xs text-slate-400 mt-2">Postman</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="achievements" class="tab-content space-y-6">
+                <div class="glass-card p-8 rounded-3xl flex gap-6 items-center">
+                    <div class="text-4xl accent-text shadow-sky-500/20"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <h4 class="text-white text-lg font-bold">Saigon University (SGU) Academic Performance</h4>
+                        <p class="text-sm text-slate-400 italic">Expected Graduation: 2026</p>
+                        <p class="text-sm text-slate-500 mt-2">Consistent focus on Software Engineering principles and
+                            academic projects.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl flex gap-6 items-center">
+                    <div class="text-4xl accent-text"><i class="fas fa-terminal"></i></div>
+                    <div>
+                        <h4 class="text-white text-lg font-bold">Full-stack Proficiency</h4>
+                        <p class="text-sm text-slate-400 italic">Project Milestones</p>
+                        <p class="text-sm text-slate-500 mt-2">Successfully managed and delivered multiple end-to-end
+                            management systems using diverse tech stacks (.NET, Laravel, Spring Boot).</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer
+                class="pt-12 text-center text-[10px] text-slate-600 border-t border-slate-800 mt-12 uppercase tracking-[0.2em]">
+                © 2026 Mao Thi Minh Hang | Software Engineer | Built with Passion
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>
